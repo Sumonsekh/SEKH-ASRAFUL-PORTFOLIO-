@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Sekh Asraful - Hospitality Supervisor | Premium Portfolio"/>
+<meta name="keywords" content="Sekh Asraful, Hospitality Supervisor, Compass Group, Oberoi Group, Bangalore"/>
+<meta name="author" content="Sekh Asraful"/>
+<title>Sekh Asraful | Hospitality Supervisor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & Root ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#9A7530;
+  --bk:#050505;--bk2:#0D0D0D;--bk3:#141414;--bk4:#1C1C1C;
+  --wh:#F5F0E8;--wh2:#C8C0B0;
+  --glass:rgba(255,255,255,0.025);--gb:rgba(201,168,76,0.15);
+}
+body{background:var(--bk);color:var(--wh);font-family:'Josefin Sans',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bk2)}
+::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:2px}
+a{text-decoration:none;color:inherit}
+
+/* ── Typography ── */
+.serif{font-family:'Cormorant Garamond',serif}
+.gold-text{
+  background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;animation:shimmer 6s linear infinite
+}
+
+/* ── Keyframes ── */
+@keyframes shimmer{0%{background-position:-400% center}100%{background-position:400% center}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(180deg)}}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.45)}50%{box-shadow:0 0 0 10px rgba(201,168,76,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes rotate-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes rotate-rev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+@keyframes loading-bar{0%{width:0}100%{width:100%}}
+@keyframes loading-out{0%,75%{opacity:1;pointer-events:all}100%{opacity:0;pointer-events:none}}
+@keyframes particle-rise{0%{transform:translateY(100vh) translateX(0) scale(.2);opacity:0}
+  15%{opacity:.9}85%{opacity:.5}100%{transform:translateY(-50px) translateX(var(--dx)) scale(1);opacity:0}}
+@keyframes nav-drop{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes bar-fill{from{width:0}to{width:var(--pct)}}
+@keyframes ring-draw{from{stroke-dashoffset:var(--circ)}to{stroke-dashoffset:var(--dash)}}
+@keyframes slide-in-l{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slide-in-r{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scale-in{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+
+/* ── Loading ── */
+#loader{
+  position:fixed;inset:0;background:var(--bk);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  animation:loading-out .8s ease 2.4s forwards
+}
+#loader .logo{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,7vw,4rem);letter-spacing:.3em;margin-bottom:8px}
+#loader .sub{font-size:.55rem;letter-spacing:.55em;color:var(--wh2);margin-bottom:36px;text-transform:uppercase}
+#loader .bar-track{width:200px;height:1px;background:var(--bk4);overflow:hidden}
+#loader .bar-fill{height:100%;background:linear-gradient(90deg,var(--gold-d),var(--gold-l));animation:loading-bar 2s ease forwards}
+
+/* ── Navbar ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;transition:all .5s;animation:nav-drop .8s ease .3s both
+}
+#nav.scrolled{background:rgba(5,5,5,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.1)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:.2em;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-link{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--wh2);cursor:pointer;padding:4px 0;position:relative;transition:color .3s}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-link:hover{color:var(--gold)}.nav-link:hover::after{width:100%}
+.nav-hire{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--bk);font-family:'Josefin Sans',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:9px 20px;border:none;cursor:pointer;transition:all .3s}
+.nav-hire:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:4px}
+.ham-line{width:24px;height:1px;background:var(--gold);transition:all .3s}
+#mobile-menu{display:none;position:absolute;top:68px;left:0;right:0;background:rgba(5,5,5,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.12);padding:24px 6%;flex-direction:column;gap:22px;animation:fadeUp .3s ease}
+#mobile-menu.open{display:flex}
+.mob-link{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--wh2);cursor:pointer;transition:color .3s}
+.mob-link:hover{color:var(--gold)}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
+
+/* ── Buttons ── */
+.btn-gold{background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));color:var(--bk);font-family:'Josefin Sans',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:14px 34px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;display:inline-block}
+.btn-gold::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0);transition:.3s}
+.btn-gold:hover::after{background:rgba(255,255,255,.15)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,168,76,.4)}
+.btn-outline{background:transparent;color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:.7rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;padding:13px 34px;border:1px solid var(--gold);cursor:pointer;transition:all .3s;display:inline-block}
+.btn-outline:hover{background:rgba(201,168,76,.08);transform:translateY(-2px);box-shadow:0 0 22px rgba(201,168,76,.2)}
+
+/* ── Section Shared ── */
+.section{padding:96px 6%;max-width:1280px;margin:0 auto}
+.section-wrap{padding:96px 6%}
+.section-center{text-align:center;margin-bottom:68px}
+.eyebrow{font-size:.55rem;letter-spacing:.6em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:300;letter-spacing:.08em;color:var(--wh)}
+.divider{width:72px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0}
+
+/* ── Glass Card ── */
+.glass{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--gb);border-radius:1px;transition:all .4s}
+.glass:hover{border-color:rgba(201,168,76,.45);background:rgba(201,168,76,.04);transform:translateY(-5px);box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 30px rgba(201,168,76,.07)}
+
+/* ── Reveal animations (JS-driven) ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-50px);transition:opacity .85s ease,transform .85s ease}
+.reveal-l.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(50px);transition:opacity .85s ease,transform .85s ease}
+.reveal-r.visible{opacity:1;transform:none}
+
+/* ── Hero ── */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(201,168,76,.022) 80px,rgba(201,168,76,.022) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(201,168,76,.022) 80px,rgba(201,168,76,.022) 81px)}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 40%,rgba(201,168,76,.065) 0%,transparent 68%)}
+.ring1,.ring2{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ring1{width:min(620px,88vw);height:min(620px,88vw);border:1px solid rgba(201,168,76,.055);animation:rotate-slow 32s linear infinite}
+.ring2{width:min(440px,65vw);height:min(440px,65vw);border:1px solid rgba(201,168,76,.04);animation:rotate-rev 22s linear infinite}
+#particles-canvas{position:absolute;inset:0;pointer-events:none}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:0 5%;max-width:880px;width:100%}
+.hero-badge{font-size:.58rem;letter-spacing:.6em;color:var(--gold);text-transform:uppercase;margin-bottom:28px;animation:fadeIn 1s ease .5s both}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,10vw,7.5rem);font-weight:300;letter-spacing:.1em;line-height:1;color:var(--wh);margin-bottom:4px;min-height:1.1em}
+.cursor{border-right:2px solid var(--gold);animation:blink .7s infinite;margin-left:2px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.8vw,1.7rem);font-style:italic;letter-spacing:.15em;margin-bottom:28px;animation:fadeUp .8s ease 2.2s both}
+.hero-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 28px;animation:fadeIn .8s ease 2.3s both}
+.hero-tagline{font-size:clamp(.75rem,1.6vw,.92rem);letter-spacing:.07em;color:var(--wh2);line-height:1.9;max-width:620px;margin:0 auto 44px;font-weight:300;animation:fadeUp .9s ease 2.4s both}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .9s ease 2.5s both}
+.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeIn 1s ease 3s both}
+.scroll-cue span{font-size:.5rem;letter-spacing:.45em;color:rgba(201,168,76,.5);text-transform:uppercase}
+.scroll-line{width:1px;height:48px;background:linear-gradient(180deg,var(--gold),transparent);animation:float 2.2s ease-in-out infinite}
+
+/* ── About ── */
+#about-wrap{background:var(--bk2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.about-l{padding:48px 42px;background:rgba(201,168,76,.03);border-left:1px solid rgba(201,168,76,.22)}
+.about-big{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;line-height:1;margin-bottom:26px}
+.about-big small{font-family:'Josefin Sans',sans-serif;font-size:.75rem;letter-spacing:.3em;display:block;margin-top:6px}
+.about-r{padding:48px 42px}
+.about-para{font-size:.82rem;color:var(--wh2);line-height:2.15;letter-spacing:.05em;margin-bottom:20px}
+.about-para span{color:var(--gold)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:2px}
+.stat-card{padding:32px 20px;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;margin-bottom:8px}
+.stat-lbl{font-size:.58rem;letter-spacing:.3em;color:var(--wh2);text-transform:uppercase}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(2,1fr)}}
+
+/* ── Experience ── */
+#exp-wrap{background:var(--bk);padding:96px 0}
+.timeline{position:relative;max-width:1100px;margin:0 auto;padding:0 6%}
+.tl-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--gold),var(--gold-d),transparent);transform:translateX(-50%)}
+.tl-item{display:flex;justify-content:flex-end;margin-bottom:56px;position:relative}
+.tl-item.right{justify-content:flex-start}
+.tl-dot{position:absolute;left:50%;top:28px;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.5);animation:pulse-gold 2.5s infinite;z-index:2}
+.tl-card{width:calc(50% - 44px);margin-right:44px;padding:32px 32px}
+.tl-item.right .tl-card{margin-right:0;margin-left:44px}
+.tl-tag{font-size:.52rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.tl-company{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--wh);letter-spacing:.05em;margin-bottom:2px}
+.tl-role{font-size:.7rem;color:var(--gold-l);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+.tl-meta{font-size:.63rem;color:rgba(245,240,232,.4);letter-spacing:.1em;margin-bottom:20px}
+.tl-sep{width:100%;height:1px;background:rgba(201,168,76,.1);margin-bottom:18px}
+.tl-badge{font-size:.58rem;color:var(--gold);background:rgba(201,168,76,.09);border:1px solid rgba(201,168,76,.2);padding:4px 12px;white-space:nowrap;float:right;margin-left:12px;margin-bottom:8px}
+.tl-duties{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tl-duties li{display:flex;gap:10px;font-size:.72rem;color:var(--wh2);letter-spacing:.04em;line-height:1.65}
+.tl-duties li::before{content:'◆';color:var(--gold);flex-shrink:0;font-size:.5rem;margin-top:3px}
+@media(max-width:768px){
+  .tl-line{left:22px}
+  .tl-dot{left:22px}
+  .tl-item,.tl-item.right{justify-content:flex-start}
+  .tl-card,.tl-item.right .tl-card{width:auto;margin-left:52px;margin-right:0}
+}
+
+/* ── Skills ── */
+#skills-wrap{background:var(--bk2);padding:96px 6%}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;max-width:1100px;margin:0 auto}
+.skill-item{}
+.skill-head{display:flex;justify-content:space-between;margin-bottom:10px}
+.skill-name{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--wh2)}
+.skill-pct{font-size:.7rem;font-weight:600}
+.skill-track{height:2px;background:rgba(255,255,255,.06);border-radius:1px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l));width:0;transition:width 1.5s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.skill-fill::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:rgba(255,255,255,.28);transform:skewX(-20deg);animation:shimmer 3s infinite}
+
+/* ── Education ── */
+#edu-wrap{background:var(--bk);padding:96px 6%}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;max-width:1100px;margin:0 auto}
+.edu-card{padding:48px 40px;border-top:1px solid rgba(201,168,76,.3)}
+.edu-icon{font-size:2.4rem;margin-bottom:24px}
+.edu-year{font-size:.55rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.edu-deg{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--wh);line-height:1.3;margin-bottom:12px}
+.edu-line{width:38px;height:1px;background:var(--gold);margin-bottom:12px}
+.edu-school{font-size:.72rem;letter-spacing:.08em;color:var(--wh2)}
+
+/* ── Languages ── */
+#lang-wrap{background:var(--bk2);padding:80px 6%;text-align:center}
+.lang-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.lang-card{flex:1 1 160px;min-width:150px;padding:40px 28px}
+.lang-ring-wrap{position:relative;width:88px;height:88px;margin:0 auto 20px}
+.lang-ring-wrap svg{transform:rotate(-90deg)}
+.lang-pct-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600}
+.lang-name{font-size:.88rem;letter-spacing:.22em;text-transform:uppercase;color:var(--wh);margin-bottom:6px}
+.lang-level{font-size:.56rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+
+/* ── Contact ── */
+#contact-wrap{background:var(--bk);padding:96px 6%}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:1100px;margin:0 auto}
+.contact-l{padding:48px 44px;background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.12)}
+.contact-r{padding:48px 44px}
+.contact-h{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;letter-spacing:.07em;margin-bottom:36px;color:var(--wh)}
+.info-row{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}
+.info-icon{font-size:1.2rem;margin-top:2px;flex-shrink:0}
+.info-lbl{font-size:.55rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.info-val{font-size:.78rem;letter-spacing:.06em;color:var(--wh2);transition:color .3s}
+.info-val:hover{color:var(--gold)}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.cf-input,.cf-textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.2);color:var(--wh);font-family:'Josefin Sans',sans-serif;font-size:.8rem;letter-spacing:.1em;padding:14px 18px;outline:none;transition:border-color .3s;resize:vertical}
+.cf-input::placeholder,.cf-textarea::placeholder{color:rgba(245,240,232,.3)}
+.cf-input:focus,.cf-textarea:focus{border-color:var(--gold)}
+.cf-success{text-align:center;padding:60px 20px;display:none}
+.cf-success-icon{font-family:'Cormorant Garamond',serif;font-size:3.2rem;margin-bottom:14px}
+.cf-success p{font-size:.8rem;letter-spacing:.15em;color:var(--wh2)}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+
+/* ── Footer ── */
+footer{background:var(--bk2);border-top:1px solid rgba(201,168,76,.1);padding:44px 6%;text-align:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:2.2rem;letter-spacing:.3em;margin-bottom:12px}
+.footer-sub{font-size:.55rem;letter-spacing:.5em;color:var(--wh2);margin-bottom:20px;text-transform:uppercase}
+.footer-divider{width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px}
+.footer-copy{font-size:.6rem;letter-spacing:.2em;color:rgba(245,240,232,.28)}
+
+/* ── Back to Top ── */
+#btt{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:var(--gold);border:none;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;z-index:999;box-shadow:0 4px 20px rgba(201,168,76,.4);transition:transform .2s}
+#btt:hover{transform:translateY(-4px)}
+#btt.show{display:flex}
+
+/* ── Responsive ── */
+@media(max-width:600px){
+  .section{padding:72px 5%}
+  .about-l,.about-r{padding:36px 24px}
+  .tl-card{padding:24px 22px}
+  .contact-l,.contact-r{padding:36px 24px}
+  .edu-card{padding:36px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div id="loader">
+  <div class="logo gold-text">SA</div>
+  <div class="sub">Hospitality Professional</div>
+  <div class="bar-track"><div class="bar-fill"></div></div>
+</div>
+
+<!-- Navbar -->
+<nav id="nav">
+  <div class="nav-logo gold-text" onclick="scrollTop()">SA</div>
+  <div class="nav-links">
+    <span class="nav-link" onclick="scrollTo('about')">About</span>
+    <span class="nav-link" onclick="scrollTo('experience')">Experience</span>
+    <span class="nav-link" onclick="scrollTo('skills')">Skills</span>
+    <span class="nav-link" onclick="scrollTo('education')">Education</span>
+    <span class="nav-link" onclick="scrollTo('contact')">Contact</span>
+    <button class="nav-hire" onclick="scrollTo('contact')">Hire Me</button>
+  </div>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <div class="ham-line" id="h1"></div>
+    <div class="ham-line" id="h2"></div>
+    <div class="ham-line" id="h3"></div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <span class="mob-link" onclick="scrollTo('about');toggleMenu()">About</span>
+  <span class="mob-link" onclick="scrollTo('experience');toggleMenu()">Experience</span>
+  <span class="mob-link" onclick="scrollTo('skills');toggleMenu()">Skills</span>
+  <span class="mob-link" onclick="scrollTo('education');toggleMenu()">Education</span>
+  <span class="mob-link" onclick="scrollTo('languages');toggleMenu()">Languages</span>
+  <span class="mob-link" onclick="scrollTo('contact');toggleMenu()">Contact</span>
+</div>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="ring1"></div>
+  <div class="ring2"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge">✦ &nbsp; Portfolio &nbsp; ✦</div>
+    <div class="hero-name serif" id="hero-name"><span id="typed"></span><span class="cursor" id="cursor">&nbsp;</span></div>
+    <div class="hero-title gold-text">Hospitality Supervisor</div>
+    <div class="hero-line"></div>
+    <p class="hero-tagline">Dedicated hospitality professional with experience in supervision, operations management, customer service, and luxury hospitality standards.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="downloadCV()">⬇ Download CV</button>
+      <button class="btn-outline" onclick="scrollTo('contact')">Contact Me</button>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- About -->
+<div id="about-wrap">
+<div id="about" class="section" style="padding-top:0;padding-bottom:0;max-width:100%">
+<div style="max-width:1280px;margin:0 auto;padding:96px 0 0">
+  <div class="section-center reveal">
+    <div class="eyebrow">✦ &nbsp; Who I Am &nbsp; ✦</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-l reveal-l">
+      <div class="about-big serif gold-text">3+<small>Years Exp.</small></div>
+      <p class="about-para">A results-driven hospitality professional who has delivered excellence across India's most prestigious establishments — from the iconic <span>Oberoi Group</span> to <span>Amazon's</span> corporate campus via <span>Compass Group</span>.</p>
+    </div>
+    <div class="about-r reveal-r">
+      <p class="about-para">My journey spans multiple prestigious organisations — <span>Compass Group India</span> at Amazon's Bangalore campus, <span>The Oberoi Group</span>, and <span>Spice Garden Restaurant</span> in Kolkata — giving me a well-rounded foundation in both luxury hospitality and high-volume corporate environments.</p>
+      <p class="about-para">I bring strong leadership and team coordination skills honed while managing diverse service teams under the demanding standards of 5-star luxury hospitality. My expertise in POS billing, cash &amp; digital payment management, and peak-hour operations makes me a reliable backbone for any front-of-house operation.</p>
+      <p class="about-para">I am a hardworking, quick learner who thrives under pressure — streamlining workflows, resolving guest concerns with grace, and coaching team members to uphold world-class service standards.</p>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card glass reveal"><div class="stat-num serif gold-text">3+</div><div class="stat-lbl">Years Experience</div></div>
+    <div class="stat-card glass reveal" style="transition-delay:.1s"><div class="stat-num serif gold-text">3</div><div class="stat-lbl">Companies Served</div></div>
+    <div class="stat-card glass reveal" style="transition-delay:.2s"><div class="stat-num serif gold-text">100%</div><div class="stat-lbl">Guest Satisfaction</div></div>
+    <div class="stat-card glass reveal" style="transition-delay:.3s"><div class="stat-num serif gold-text">2</div><div class="stat-lbl">Cities Worked</div></div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Experience -->
+<div id="exp-wrap">
+<div id="experience" style="padding:0">
+  <div style="max-width:1280px;margin:0 auto;padding:96px 6%">
+    <div class="section-center reveal">
+      <div class="eyebrow">✦ &nbsp; Career Journey &nbsp; ✦</div>
+      <h2 class="section-title">Experience</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-line"></div>
+
+    <!-- Job 1 -->
+    <div class="tl-item reveal-l">
+      <div class="tl-dot"></div>
+      <div class="tl-card glass">
+        <span class="tl-badge">Current</span>
+        <div class="tl-tag">Present Position</div>
+        <div class="tl-company">Compass Group India</div>
+        <div class="tl-role">Hospitality Supervisor</div>
+        <div class="tl-meta">📍 Amazon BLR 26, Bangalore &nbsp;|&nbsp; 2025 – Present</div>
+        <div class="tl-sep"></div>
+        <ul class="tl-duties">
+          <li>Supervised daily POS billing operations with precision and full accountability</li>
+          <li>Managed cash, card, and UPI transaction reconciliation seamlessly</li>
+          <li>Coordinated kitchen and service teams for efficient workflow</li>
+          <li>Maintained smooth operational workflow and process standards</li>
+          <li>Resolved customer issues swiftly to maintain satisfaction at all times</li>
+          <li>Managed high-pressure peak-hour operations with composure</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="tl-item right reveal-r">
+      <div class="tl-dot"></div>
+      <div class="tl-card glass">
+        <span class="tl-badge">Luxury</span>
+        <div class="tl-tag">Luxury Hospitality</div>
+        <div class="tl-company">The Oberoi Group</div>
+        <div class="tl-role">Hospitality Supervisor</div>
+        <div class="tl-meta">📍 Bangalore &nbsp;|&nbsp; 2024 – 2025</div>
+        <div class="tl-sep"></div>
+        <ul class="tl-duties">
+          <li>Upheld world-class luxury hospitality standards in every service interaction</li>
+          <li>Coordinated smooth service flow across multiple fine-dining areas</li>
+          <li>Supported and mentored team members for consistently optimal performance</li>
+          <li>Ensured continuous guest satisfaction and memorable experiences</li>
+          <li>Managed seamless service quality during peak occupancy periods</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Job 3 -->
+    <div class="tl-item reveal-l">
+      <div class="tl-dot"></div>
+      <div class="tl-card glass">
+        <span class="tl-badge">Foundation</span>
+        <div class="tl-tag">Career Foundation</div>
+        <div class="tl-company">Spice Garden Restaurant</div>
+        <div class="tl-role">Cashier</div>
+        <div class="tl-meta">📍 Kolkata &nbsp;|&nbsp; 2023 – 2024</div>
+        <div class="tl-sep"></div>
+        <ul class="tl-duties">
+          <li>Managed billing and POS system with accuracy and reliability every day</li>
+          <li>Maintained thorough daily payment records and reconciliation reports</li>
+          <li>Provided professional customer assistance with warmth and efficiency</li>
+          <li>Prepared Excel reports for sales tracking and management review</li>
+          <li>Supported inventory management and stock record keeping</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Skills -->
+<div id="skills-wrap">
+<div id="skills">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-center reveal">
+      <div class="eyebrow">✦ &nbsp; Expertise &nbsp; ✦</div>
+      <h2 class="section-title">Skills</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="skills-grid" id="skills-grid">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Education -->
+<div id="edu-wrap">
+<div id="education">
+  <div style="max-width:1100px;margin:0 auto;padding:0 6%">
+    <div class="section-center reveal">
+      <div class="eyebrow">✦ &nbsp; Academic Background &nbsp; ✦</div>
+      <h2 class="section-title">Education</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card glass reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-year">2022 – 2025</div>
+        <div class="edu-deg">Bachelor of Arts<br/>(Graduation)</div>
+        <div class="edu-line"></div>
+        <div class="edu-school">The University of Burdwan</div>
+      </div>
+      <div class="edu-card glass reveal" style="transition-delay:.15s">
+        <div class="edu-icon">📚</div>
+        <div class="edu-year">2019 – 2021</div>
+        <div class="edu-deg">Higher Secondary</div>
+        <div class="edu-line"></div>
+        <div class="edu-school">West Bengal State Council of Technical &amp; Vocational Education &amp; Skill Development</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Languages -->
+<div id="lang-wrap">
+<div id="languages">
+  <div style="max-width:1100px;margin:0 auto;padding:0 6%">
+    <div class="section-center reveal">
+      <div class="eyebrow">✦ &nbsp; Communication &nbsp; ✦</div>
+      <h2 class="section-title">Languages</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="lang-row" id="lang-row"><!-- filled by JS --></div>
+  </div>
+</div>
+</div>
+
+<!-- Contact -->
+<div id="contact-wrap">
+<div id="contact">
+  <div style="max-width:1100px;margin:0 auto;padding:0 6%">
+    <div class="section-center reveal">
+      <div class="eyebrow">✦ &nbsp; Get In Touch &nbsp; ✦</div>
+      <h2 class="section-title">Contact</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-l reveal-l">
+        <h3 class="contact-h">Let's Connect</h3>
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-lbl">Phone</div>
+            <a class="info-val" href="tel:+919749620595">+91 9749620595</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">✉️</div>
+          <div>
+            <div class="info-lbl">Email</div>
+            <a class="info-val" href="mailto:sekhsumon884@gmail.com">sekhsumon884@gmail.com</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-lbl">Location</div>
+            <span class="info-val">Bangalore, India</span>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a href="https://wa.me/919749620595" target="_blank" class="btn-gold" style="font-size:.65rem">💬 WhatsApp</a>
+          <a href="tel:+919749620595" class="btn-outline" style="font-size:.65rem">📞 Call Now</a>
+        </div>
+      </div>
+      <div class="contact-r reveal-r">
+        <div class="contact-form" id="contact-form">
+          <input class="cf-input" id="cf-name" placeholder="Your Name" />
+          <input class="cf-input" id="cf-email" placeholder="Your Email" type="email"/>
+          <textarea class="cf-textarea" id="cf-msg" rows="5" placeholder="Your Message"></textarea>
+          <button class="btn-gold" style="align-self:flex-start" onclick="sendMsg()">Send Message</button>
+        </div>
+        <div class="cf-success" id="cf-success">
+          <div class="cf-success-icon gold-text serif">✓</div>
+          <p>Message sent successfully!<br/>I'll get back to you soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo gold-text">SA</div>
+  <div class="footer-sub">Sekh Asraful · Hospitality Supervisor</div>
+  <div class="footer-divider"></div>
+  <div class="footer-copy">© <span id="yr"></span> Sekh Asraful. All rights reserved. · Bangalore, India</div>
+</footer>
+
+<!-- Back to Top -->
+<button id="btt" onclick="scrollTop()" title="Back to top">↑</button>
+
+<script>
+/* ── Year ── */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── Loader ── */
+setTimeout(()=>{ document.getElementById('loader').style.display='none'; }, 3000);
+
+/* ── Scroll helpers ── */
+function scrollTo(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
+function scrollTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+
+/* ── Navbar ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 320);
+});
+
+/* ── Hamburger ── */
+let menuOpen=false;
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  document.getElementById('mobile-menu').classList.toggle('open',menuOpen);
+  document.getElementById('h1').style.transform=menuOpen?'rotate(45deg) translateY(7px)':'none';
+  document.getElementById('h2').style.opacity=menuOpen?'0':'1';
+  document.getElementById('h3').style.transform=menuOpen?'rotate(-45deg) translateY(-7px)':'none';
+}
+
+/* ── Particles ── */
+(function(){
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  let W,H,particles=[];
+  function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+  resize(); window.addEventListener('resize',resize);
+  function rand(a,b){ return a+Math.random()*(b-a); }
+  for(let i=0;i<20;i++) particles.push({x:rand(0,1),y:rand(0,1),vy:rand(-.0004,-.0002),vx:rand(-.0001,.0001),size:rand(1.2,2.5),alpha:rand(.3,.8),phase:rand(0,Math.PI*2)});
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t+=0.005;
+    particles.forEach(p=>{
+      p.y+=p.vy; p.x+=p.vx;
+      if(p.y<-0.05){ p.y=1.1; p.x=Math.random(); }
+      const a=p.alpha*(0.6+0.4*Math.sin(t+p.phase));
+      ctx.beginPath();
+      ctx.arc(p.x*W,p.y*H,p.size,0,Math.PI*2);
+      ctx.fillStyle=`rgba(201,168,76,${a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── Typewriter ── */
+(function(){
+  const name='Sekh Asraful';
+  const el=document.getElementById('typed');
+  const cur=document.getElementById('cursor');
+  let i=0;
+  function type(){
+    if(i<=name.length){ el.textContent=name.slice(0,i); i++; setTimeout(type,90); }
+    else{ setTimeout(()=>{ cur.style.display='none'; },1200); }
+  }
+  setTimeout(type, 800);
+})();
+
+/* ── CV Download ── */
+function downloadCV(){
+  alert('To enable CV download: Upload your CV PDF to your GitHub repo and update this function with the file path.');
+}
+
+/* ── Scroll Reveal ── */
+const reveals = document.querySelectorAll('.reveal,.reveal-l,.reveal-r');
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+},{threshold:0.12});
+reveals.forEach(r=>revealObs.observe(r));
+
+/* ── Skills ── */
+const skills=[
+  {n:'Team Management',p:92},{n:'Leadership',p:90},{n:'Customer Service',p:95},
+  {n:'POS Billing System',p:93},{n:'Communication Skills',p:88},{n:'Time Management',p:87},
+  {n:'Operational Coordination',p:91},{n:'Microsoft Excel',p:80},
+  {n:'Microsoft Word',p:82},{n:'Microsoft PowerPoint',p:75},{n:'Computer Operations',p:83},
+];
+const sg=document.getElementById('skills-grid');
+skills.forEach((s,i)=>{
+  const d=document.createElement('div');
+  d.className='skill-item reveal';
+  d.style.transitionDelay=`${i*0.06}s`;
+  d.innerHTML=`<div class="skill-head"><span class="skill-name">${s.n}</span><span class="skill-pct gold-text">${s.p}%</span></div><div class="skill-track"><div class="skill-fill" data-pct="${s.p}%"></div></div>`;
+  sg.appendChild(d);
+});
+const skillObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.skill-fill').forEach(f=>{ f.style.width=f.dataset.pct; });
+      skillObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.skill-item').forEach(s=>skillObs.observe(s));
+
+/* ── Languages ── */
+const langs=[{n:'Bengali',l:'Native',p:100},{n:'Hindi',l:'Fluent',p:90},{n:'English',l:'Proficient',p:85}];
+const circ=2*Math.PI*34;
+const lr=document.getElementById('lang-row');
+langs.forEach((l,i)=>{
+  const dash=(l.p/100)*circ;
+  const d=document.createElement('div');
+  d.className='lang-card glass reveal';
+  d.style.transitionDelay=`${i*0.15}s`;
+  d.innerHTML=`
+    <div class="lang-ring-wrap">
+      <svg width="88" height="88" viewBox="0 0 88 88">
+        <defs><linearGradient id="lg${i}" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#9A7530"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs>
+        <circle cx="44" cy="44" r="34" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="4"/>
+        <circle class="lang-arc" cx="44" cy="44" r="34" fill="none" stroke="url(#lg${i})" stroke-width="4"
+          stroke-dasharray="0 ${circ}" stroke-linecap="round"
+          data-full="${dash}" data-circ="${circ}" style="transition:stroke-dasharray 1.6s cubic-bezier(.4,0,.2,1) .4s"/>
+      </svg>
+      <div class="lang-pct-label gold-text">${l.p}%</div>
+    </div>
+    <div class="lang-name">${l.n}</div>
+    <div class="lang-level">${l.l}</div>`;
+  lr.appendChild(d);
+});
+const langObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.lang-arc').forEach(a=>{
+        a.style.strokeDasharray=`${a.dataset.full} ${a.dataset.circ}`;
+      });
+      langObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.lang-card').forEach(c=>langObs.observe(c));
+
+/* ── Contact form ── */
+function sendMsg(){
+  const n=document.getElementById('cf-name').value.trim();
+  const e=document.getElementById('cf-email').value.trim();
+  const m=document.getElementById('cf-msg').value.trim();
+  if(!n||!e||!m){ alert('Please fill in all fields.'); return; }
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('cf-success').style.display='block';
+  setTimeout(()=>{
+    document.getElementById('contact-form').style.display='flex';
+    document.getElementById('cf-success').style.display='none';
+    document.getElementById('cf-name').value='';
+    document.getElementById('cf-email').value='';
+    document.getElementById('cf-msg').value='';
+  },4000);
+}
+</script>
+</body>
+</html>
