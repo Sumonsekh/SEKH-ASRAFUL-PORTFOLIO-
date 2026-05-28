@@ -264,12 +264,12 @@ footer{background:var(--bk2);border-top:1px solid rgba(201,168,76,.1);padding:44
 <nav id="nav">
   <div class="nav-logo gold-text" onclick="scrollTop()">SA</div>
   <div class="nav-links">
-    <span class="nav-link" onclick="scrollTo('about')">About</span>
-    <span class="nav-link" onclick="scrollTo('experience')">Experience</span>
-    <span class="nav-link" onclick="scrollTo('skills')">Skills</span>
-    <span class="nav-link" onclick="scrollTo('education')">Education</span>
-    <span class="nav-link" onclick="scrollTo('contact')">Contact</span>
-    <button class="nav-hire" onclick="scrollTo('contact')">Hire Me</button>
+    <span class="nav-link" onclick="goTo('about')">About</span>
+    <span class="nav-link" onclick="goTo('experience')">Experience</span>
+    <span class="nav-link" onclick="goTo('skills')">Skills</span>
+    <span class="nav-link" onclick="goTo('education')">Education</span>
+    <span class="nav-link" onclick="goTo('contact')">Contact</span>
+    <button class="nav-hire" onclick="sc('contact')">Hire Me</button>
   </div>
   <div class="hamburger" id="ham" onclick="toggleMenu()">
     <div class="ham-line" id="h1"></div>
@@ -278,12 +278,12 @@ footer{background:var(--bk2);border-top:1px solid rgba(201,168,76,.1);padding:44
   </div>
 </nav>
 <div id="mobile-menu">
-  <span class="mob-link" onclick="scrollTo('about');toggleMenu()">About</span>
-  <span class="mob-link" onclick="scrollTo('experience');toggleMenu()">Experience</span>
-  <span class="mob-link" onclick="scrollTo('skills');toggleMenu()">Skills</span>
-  <span class="mob-link" onclick="scrollTo('education');toggleMenu()">Education</span>
-  <span class="mob-link" onclick="scrollTo('languages');toggleMenu()">Languages</span>
-  <span class="mob-link" onclick="scrollTo('contact');toggleMenu()">Contact</span>
+  <span class="mob-link" onclick="goTo('about');toggleMenu()">About</span>
+  <span class="mob-link" onclick="goTo('experience');toggleMenu()">Experience</span>
+  <span class="mob-link" onclick="goTo('skills');toggleMenu()">Skills</span>
+  <span class="mob-link" onclick="goTo('education');toggleMenu()">Education</span>
+  <span class="mob-link" onclick="goTo('languages');toggleMenu()">Languages</span>
+  <span class="mob-link" onclick="goTo('contact');toggleMenu()">Contact</span>
 </div>
 
 <!-- Hero -->
@@ -301,7 +301,7 @@ footer{background:var(--bk2);border-top:1px solid rgba(201,168,76,.1);padding:44
     <p class="hero-tagline">Dedicated hospitality professional with experience in supervision, operations management, customer service, and luxury hospitality standards.</p>
     <div class="hero-btns">
       <button class="btn-gold" onclick="downloadCV()">⬇ Download CV</button>
-      <button class="btn-outline" onclick="scrollTo('contact')">Contact Me</button>
+      <button class="btn-outline" onclick="goTo('contact')">Contact Me</button>
     </div>
   </div>
   <div class="scroll-cue">
@@ -550,7 +550,8 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 setTimeout(()=>{ document.getElementById('loader').style.display='none'; }, 3000);
 
 /* ── Scroll helpers ── */
-function scrollTo(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
+function goTo(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
+function scrollTo(id){ goTo(id); }
 function scrollTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
 
 /* ── Navbar ── */
