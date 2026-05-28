@@ -552,7 +552,7 @@ setTimeout(()=>{ document.getElementById('loader').style.display='none'; }, 3000
 /* ── Scroll helpers ── */
 function goTo(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
 function scrollTo(id){ goTo(id); }
-function function backToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+function scrollTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
 
 /* ── Navbar ── */
 window.addEventListener('scroll',()=>{
